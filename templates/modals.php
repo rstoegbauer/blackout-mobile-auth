@@ -1,4 +1,7 @@
 <div id="authentication">
+    <?php
+    if (get_option("users_can_register")) :
+    ?>
     <div id="register" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -10,32 +13,36 @@
                 <form id="register-form">
                     <fieldset>
                         <div class="field">
+                            <label for="" class="bko-label">Username</label>
                             <div class="control">
-                                <label for="" class="bko-label">Username</label>
-
                                 <input id="register-username" name="username" type="text" class="input bko-input"
                                     required data-pristine-check-username data-pristine-length="3,20">
                             </div>
                         </div>
                         <div class="field">
+                            <label for="" class="bko-label">Email</label>
+
                             <div class="control">
-                                <label for="" class="bko-label">Email</label>
                                 <input id="register-email" name="email" type="email" class="input bko-input" required>
                             </div>
                         </div>
                         <div class="field">
-                            <div class="control">
-                                <label for="" class="bko-label">Password</label>
-
+                            <label for="" class="bko-label">Password</label>
+                            <div class="control has-icons-right">
                                 <input id="register-password" name="password" type="password" class="input bko-input"
                                     data-pristine-check-password data-pristine-length="8,50">
+                                <span class="clickable icon is-small is-right" data-action="reveal-password">
+                                    <i class="fas fa-eye-slash"></i>
+                                </span>
                             </div>
                         </div>
                         <div class="field">
-                            <div class="control">
-                                <label for="" class="bko-label">Re-type Password</label>
-
+                            <label for="" class="bko-label">Re-type Password</label>
+                            <div class="control has-icons-right">
                                 <input id="retype-password" type="password" class="input bko-input">
+                                <span class="clickable icon is-small is-right" data-action="reveal-password">
+                                    <i class="fas fa-eye"></i>
+                                </span>
                             </div>
                         </div>
                         <div id="register-recaptcha" class="field">
@@ -52,12 +59,13 @@
             </div>
             <div class="modal-card-foot">
                 <div class="content">
-                    <p>Don't have an account? <a data-action="register">Join up</a></p>
+                    <p>Already have an account? <a data-action="register">Sign In.</a></p>
                     <p>Forgot your password? <a data-action="reset">Click here.</a></p>
                 </div>
             </div>
         </div>
     </div>
+    <?php endif; ?>
     <div id="login" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -69,19 +77,29 @@
                 <form id="login-form">
                     <fieldset>
                         <div class="field">
+                            <label for="" class="bko-label">Username</label>
                             <div class="control">
-                                <label for="" class="bko-label">Username</label>
-
                                 <input name="username" id="login-username" type="text" class="input bko-input"
                                     data-pristine-check-username data-pristine-length="3, 20">
                             </div>
                         </div>
                         <div class="field">
-                            <div class="control">
-                                <label for="" class="bko-label">Password</label>
-
+                            <label for="" class="bko-label">Password</label>
+                            <div class="control has-icons-right">
                                 <input name="password" id="login-password" type="password" class="input bko-input"
                                     data-pristine-check-password data-pristine-length="8, 50">
+                                <span class="clickable icon is-small is-right" data-action="reveal-password">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <label for="" class="bko-checkbox" data-action="remember">
+                                    <input id="remember" type="checkbox">
+                                    <span class="checkmark"></span>
+                                    <span>Remember Me</span>
+                                </label>
                             </div>
                         </div>
                         <div id="login-recaptcha" class="field">
@@ -98,7 +116,9 @@
             </div>
             <div class="modal-card-foot">
                 <div class="content">
+                    <?php if (get_option("users_can_register")) : ?>
                     <p>Don't have an account? <a data-action="register">Join up</a></p>
+                    <?php endif; ?>
                     <p>Forgot your password? <a data-action="reset">Click here.</a></p>
                 </div>
             </div>
@@ -116,11 +136,11 @@
                     <fieldset>
                         <div class="field">
                             <div class="control">
-                                <label for="">Email</label>
+                                <label for="">Email Address</label>
                                 <input type="email" id="pr-email" name="email" class="input bko-input" required>
                             </div>
                         </div>
-                        <div id="rp-recaptcha" class="field">
+                        <div id="reset-recaptcha" class="field">
                             <div class="control">
 
                             </div>

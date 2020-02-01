@@ -7,6 +7,11 @@ Author: Helix
 Version: 1.0.0
 */
 
+define("BLACKOUT_TEMPLATES_ROOTPATH", WP_CONTENT_DIR . "/plugins/blackout-mobile-auth/templates/");
+define("BLACKOUT_TEMPLATES_USERPANEL", BLACKOUT_TEMPLATES_ROOTPATH . "user-panel.php");
+define("BLACKOUT_TEMPLATES_MOBILEMENU", BLACKOUT_TEMPLATES_ROOTPATH . "mobile.php");
+define("BLACKOUT_TEMPLATES_MODALS", BLACKOUT_TEMPLATES_ROOTPATH . "modals.php");
+
 if (!function_exists("setup_blackout_mobile_menu")) {
     function setup_blackout_mobile_menu() {
         require_once("mobilenavwalker.php");
