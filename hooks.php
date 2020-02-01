@@ -16,7 +16,7 @@ if (!function_exists("setup_blackout_mobile_menu")) {
     function setup_blackout_mobile_menu() {
         require_once("mobilenavwalker.php");
         wp_enqueue_script("recaptcha", "https://www.google.com/recaptcha/api.js", array(), false, false);
-        wp_enqueue_script("site", plugins_url("/site.js", __FILE__), array("recaptcha"), false, true);
+        wp_enqueue_script("site", plugins_url("/site.min.js", __FILE__), array("recaptcha"), false, true);
 
         wp_localize_script("site", "blackout_auth", array(
             "adminRootUrl" => admin_url(),
